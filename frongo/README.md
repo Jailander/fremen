@@ -162,3 +162,30 @@ YES, this is so awesome you can also get the model entropy over time using the s
     uint32[] epochs
     float64[] predictions
     ```
+## How do I test it?
+
+* You need to run an instance of your mongoDB, for example using [MongoDB Store](https://github.com/strands-project/mongodb_store):
+    ```bash
+    HOSTNAME=yourhost roslaunch mongodb_store mongodb_store.launch db_path:=/path/to/db db_port:=62345
+    ```
+* You can launch the frongo test file that includes the fremenserver, like this:
+    ```bash
+    roslaunch frongo frongo_test.launch
+    ```
+* If you want to test your yaml definitions, you can run it like this:
+    ```bash
+    roslaunch frongo frongo_test.launch with_defs_file:=true defs_file:='path_to_your_yaml_file' 
+    ```
+
+## What Next?
+
+### Try frongoweb:
+* install frongoweb:
+    ```bash
+    sudo apt-get install ros-indigo-frongoweb
+    ```
+* Run frongoweb:
+    ```bash
+    rosrun frongoweb app.py
+    ```
+* Open your browser and type on the address bar: `http://localhost:8999`
