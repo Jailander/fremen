@@ -84,7 +84,7 @@ For *float* models you can define a linear normalisation to fit the values betwe
 
 ```JSON
 {
-    "mim":0, 
+    "min":0, 
     "max":1
 }
 ```
