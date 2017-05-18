@@ -84,7 +84,7 @@ For *float* models you can define a linear normalisation to fit the values betwe
 
 ```JSON
 {
-    "mim":0, 
+    "min":0, 
     "max":1
 }
 ```
@@ -140,7 +140,55 @@ Where **names** is the list of all the model names and **info** is a yaml string
 
 ## Is there anything else I should know?
 
-YES, this is so awesome you can also get the model entropy over time using the services:
+YES, frongo is not just another terminal spammer application, you can visualise your models using **frongoweb** frongo's web backend.
+To launch it just run the **frongoweb** app by typing: 
+
+```bash
+rosrun frongoweb app.py
+```
+
+## Ok you sold it to me, but can you explain step by step how to use it?
+
+Sure! Ok lets go though what you need.
+
+### Requirements
+
+1. ROS
+
+Yes you need a functioning installation of ROS you can get it following this [link](http://wiki.ros.org/indigo/Installation/Ubuntu).
+
+2. MongoDB
+
+We recommend you use our MongoDB ROS implementation which you can check on this [link](http://wiki.ros.org/mongodb_store).
+You can get it following the steps on this [guide](https://github.com/strands-project-releases/strands-releases/wiki) and running:
+
+```bash
+sudo apt-get install ros-indigo-mongodb-store
+```
+
+3. Fremen
+
+You will also need to have the fremenserver in your system you can get it in your system by running:
+
+```bash
+sudo apt-get install ros-indigo-fremenserver
+```
+
+4. Frongo
+
+And of course you will need **frongo**
+
+```bash
+sudo apt-get install ros-indigo-frongo 
+sudo apt-get install ros-indigo-frongoweb
+```
+
+### Execution
+
+
+### services
+
+this is so awesome you can also get the model entropy over time using the services:
 
 * **`/frongo/get_entropies`** For the best model order, which looks like this:
 
@@ -162,31 +210,3 @@ YES, this is so awesome you can also get the model entropy over time using the s
     uint32[] epochs
     float64[] predictions
     ```
-### Describe Frongoweb
-
-here I will describe frongo web
-    
-### Examples
-
-```Yaml
-- model:
-    name: "mon_navs_tsc_y3"
-    model_type: "events"
-    db: "tsc_y4_message_store"
-    collection: "filtered_monitored_nav_events_y3"
-    query: "{}"
-    timestamp_field: "_meta.inserted_at"
-    timestamp_type: 'datetime'
-    data_type: "float"
-    data_conf: '{"sampling": 1800}'
-- model:
-    name: "mon_navs_tsc_y4"
-    model_type: "events"
-    db: "tsc_y4_message_store"
-    collection: "filtered_monitored_nav_events"
-    query: "{}"
-    timestamp_field: "_meta.inserted_at"
-    timestamp_type: 'datetime'
-    data_type: "float"
-    data_conf: '{"sampling": 1800}'
-```
